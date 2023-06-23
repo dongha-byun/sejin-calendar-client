@@ -1,7 +1,14 @@
 import logo from './logo.svg';
 import './App.css';
+import { SEND_MAIN_PING } from './constants';
 
 function App() {
+
+  const { ipcRenderer } = window.require("electron");
+  const sendMail = () => {
+    ipcRenderer.send(SEND_MAIN_PING, 'send');
+  }
+
   return (
     <div className="App">
       <header className="App-header">
@@ -9,6 +16,7 @@ function App() {
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
+        <p>Hello! This is Sejin Calendar Client Program.</p>
         <a
           className="App-link"
           href="https://reactjs.org"
@@ -17,6 +25,7 @@ function App() {
         >
           Learn React
         </a>
+        <button onClick={sendMail}>Send Mail</button>
       </header>
     </div>
   );
