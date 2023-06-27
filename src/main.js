@@ -6,19 +6,23 @@ const {
 
 function createWindow () { 
   const win = new BrowserWindow({ 
-    width: 800, 
+    width: 1200, 
     height: 600, 
     webPreferences: { 
       nodeIntegration: true,
       contextIsolation : false
     } 
-  }) 
-  win.loadURL("http://localhost:3000")
+  })  
+
+  win.loadURL("http://localhost:3000");
+
+  win.webContents.openDevTools();
 } 
 
 // 
 ipcMain.on(SEND_MAIN_PING, (event, arg) => {
-    console.log("Main received a ping!!");
+    console.log(event);
+    console.log(arg);
 });
 
 app.whenReady().then(() => { 
