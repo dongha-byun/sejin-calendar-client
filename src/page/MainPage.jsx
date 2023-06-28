@@ -1,6 +1,6 @@
 import React from "react";
 import './mainMenuStyle.css';
-import { COMPANY_TYPE_AGENCY, COMPANY_TYPE_BINDING, COMPANY_TYPE_MATERIAL, COMPANY_TYPE_PAPER, COMPANY_TYPE_PRINT, COMPANY_WIN_FEATURES, MATERIALS_WIN_FEATURES } from "../js/constants/constants";
+import { COMPANY_TYPE_AGENCY, COMPANY_TYPE_BINDING, COMPANY_TYPE_MATERIAL, COMPANY_TYPE_PAPER, COMPANY_TYPE_PRINT, COMPANY_WIN_FEATURES, MATERIALS_WIN_FEATURES, MATERIAL_TYPE_ACETATE, MATERIAL_TYPE_BIG_PAPER, MATERIAL_TYPE_BOX, MATERIAL_TYPE_GOLD, MATERIAL_TYPE_HALF_MOON, MATERIAL_TYPE_HODLER, MATERIAL_TYPE_SACK, MATERIAL_TYPE_TWIN, MATERIAL_TYPE_VINYL, PAPER_WIN_FEATURES } from "../js/constants/constants";
 
 export default function MainPage() {
 
@@ -10,7 +10,12 @@ export default function MainPage() {
     }
 
     const openMaterialWin = (materialType) => {
-        openWindow("/materials", "material_win", MATERIALS_WIN_FEATURES);
+        console.log(materialType);
+        openWindow("/material", "material_win", MATERIALS_WIN_FEATURES);
+    }
+
+    const openPaperWin = () => {
+        openWindow("/paper", "paper_win", PAPER_WIN_FEATURES);
     }
 
     const openWindow = (url, popName, features) => {
@@ -32,18 +37,18 @@ export default function MainPage() {
                     </li>
                     <li><a href="#">원자재</a>
                         <ul>
-                            <li><a href="#" onClick={() => openMaterialWin()}>금구</a></li>
-                            <li><a href="#">홀더</a></li>
-                            <li><a href="#">아스테지</a></li>
-                            <li><a href="#">TWIN</a></li>
-                            <li><a href="#">대지</a></li>
-                            <li><a href="#">Box</a></li>
-                            <li><a href="#">봉투</a></li>
-                            <li><a href="#">반달고리</a></li>
-                            <li><a href="#">비닐</a></li>
+                            <li><a href="#" onClick={() => openMaterialWin(MATERIAL_TYPE_GOLD)}>금구</a></li>
+                            <li><a href="#" onClick={() => openMaterialWin(MATERIAL_TYPE_HODLER)}>홀더</a></li>
+                            <li><a href="#" onClick={() => openMaterialWin(MATERIAL_TYPE_ACETATE)}>아스테지</a></li>
+                            <li><a href="#" onClick={() => openMaterialWin(MATERIAL_TYPE_TWIN)}>TWIN</a></li>
+                            <li><a href="#" onClick={() => openMaterialWin(MATERIAL_TYPE_BIG_PAPER)}>대지</a></li>
+                            <li><a href="#" onClick={() => openMaterialWin(MATERIAL_TYPE_BOX)}>Box</a></li>
+                            <li><a href="#" onClick={() => openMaterialWin(MATERIAL_TYPE_SACK)}>봉투</a></li>
+                            <li><a href="#" onClick={() => openMaterialWin(MATERIAL_TYPE_HALF_MOON)}>반달고리</a></li>
+                            <li><a href="#" onClick={() => openMaterialWin(MATERIAL_TYPE_VINYL)}>비닐</a></li>
                         </ul>
                     </li>
-                    <li><a href="#">용지</a></li>
+                    <li><a href="#" onClick={openPaperWin}>용지</a></li>
                     <li><a href="#">Model</a></li>
                 </ul>
             </li>

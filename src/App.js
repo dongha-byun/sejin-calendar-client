@@ -6,6 +6,8 @@ import { Container, Row } from 'react-bootstrap';
 import Login from './page/login/Login';
 import MainPage from './page/MainPage';
 import CustomCompanyPage from './page/customcompany/CustomCompanyPage';
+import MaterialPage from './page/material/MaterialPage';
+import PaperPage from './page/paper/PaperPage';
 
 function App() {
   return (
@@ -17,6 +19,8 @@ function App() {
             <Route path="/main" element={<MainPage />}></Route>
             
             <Route path="/custom-company" element={<CustomCompanyPage />}></Route>
+            <Route path="/material" element={<MaterialPage />}></Route>
+            <Route path="/paper" element={<PaperPage />}></Route>
           </Routes>
         </BrowserRouter>
       </Row>
