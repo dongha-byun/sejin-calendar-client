@@ -1,22 +1,14 @@
 import React, { useState } from "react";
 import { Button, Form } from "react-bootstrap";
-import { SEND_MAIN_PING } from "../../constants";
 import LoginService from "../../js/login/login";
 import { useNavigate } from "react-router-dom";
 
 export default function Login() {
     const navigate = useNavigate();
-    const { ipcRenderer } = window.require("electron");
-    const [number, setNumber] = useState(0);
     const [loginParam, setLoginParam] = useState({
         "loginId": "",
         "password": ""
     });
-
-    const sendMail = () => {
-        // ipcRenderer.send(SEND_MAIN_PING, 'send');
-        setNumber(number+1);
-    }
 
     const changeLoginParam = (event) => {
         setLoginParam({

@@ -8,7 +8,7 @@ export default function MaterialPage() {
                 <Form.Group className="mb-3" as={Row}>
                     <Form.Label column sm={1}>분류</Form.Label>
                     <Col sm={3}>
-                        <Form.Control type="text" />
+                        <Form.Control type="text" />                        
                     </Col>
                 </Form.Group>
                 <Form.Group className="mb-3" as={Row}>
@@ -39,11 +39,9 @@ export default function MaterialPage() {
                 <thead>
                     <tr>
                         <td>번호</td>
-                        <td>자재종류</td>
+                        <td>무게</td>
+                        <td>지질</td>
                         <td>규격</td>
-                        <td>규격</td>
-                        <td>내역</td>
-                        <td>색상</td>
                     </tr>
                 </thead>
                 <tbody>
