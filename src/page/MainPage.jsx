@@ -1,6 +1,6 @@
 import React from "react";
 import './mainMenuStyle.css';
-import { COMPANY_TYPE_AGENCY, COMPANY_TYPE_BINDING, COMPANY_TYPE_MATERIAL, COMPANY_TYPE_PAPER, COMPANY_TYPE_PRINT, COMPANY_WIN_FEATURES, MATERIALS_WIN_FEATURES, MATERIAL_TYPE_ACETATE, MATERIAL_TYPE_BIG_PAPER, MATERIAL_TYPE_BOX, MATERIAL_TYPE_GOLD, MATERIAL_TYPE_HALF_MOON, MATERIAL_TYPE_HODLER, MATERIAL_TYPE_SACK, MATERIAL_TYPE_TWIN, MATERIAL_TYPE_VINYL, PAPER_WIN_FEATURES } from "../js/constants/constants";
+import { COMPANY_TYPE_AGENCY, COMPANY_TYPE_BINDING, COMPANY_TYPE_MATERIAL, COMPANY_TYPE_PAPER, COMPANY_TYPE_PRINT, COMPANY_WIN_FEATURES, MATERIALS_WIN_FEATURES, MATERIAL_TYPE_ACETATE, MATERIAL_TYPE_BIG_PAPER, MATERIAL_TYPE_BOX, MATERIAL_TYPE_GOLD, MATERIAL_TYPE_HALF_MOON, MATERIAL_TYPE_HODLER, MATERIAL_TYPE_SACK, MATERIAL_TYPE_TWIN, MATERIAL_TYPE_VINYL, MODEL_WIN_FEATURES, PAPER_WIN_FEATURES } from "../js/constants/constants";
 
 export default function MainPage() {
 
@@ -16,6 +16,10 @@ export default function MainPage() {
 
     const openPaperWin = () => {
         openWindow("/paper", "paper_win", PAPER_WIN_FEATURES);
+    }
+
+    const openModelWin = () => {
+        openWindow("/model", "model_win", MODEL_WIN_FEATURES);
     }
 
     const openWindow = (url, popName, features) => {
@@ -49,7 +53,7 @@ export default function MainPage() {
                         </ul>
                     </li>
                     <li><a href="#" onClick={openPaperWin}>용지</a></li>
-                    <li><a href="#">Model</a></li>
+                    <li><a href="#" onClick={openModelWin}>Model</a></li>
                 </ul>
             </li>
             <li><a href="#">자재발주</a>

@@ -8,6 +8,7 @@ import MainPage from './page/MainPage';
 import CustomCompanyPage from './page/customcompany/CustomCompanyPage';
 import MaterialPage from './page/material/MaterialPage';
 import PaperPage from './page/paper/PaperPage';
+import ModelPage from './page/model/ModelPage';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
             <Route path="/custom-company" element={<CustomCompanyPage />}></Route>
             <Route path="/material" element={<MaterialPage />}></Route>
             <Route path="/paper" element={<PaperPage />}></Route>
+            <Route path="/model" element={<ModelPage />}></Route>
           </Routes>
         </BrowserRouter>
       </Row>
