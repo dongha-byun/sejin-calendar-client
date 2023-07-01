@@ -39,12 +39,16 @@ export default function PaperPage() {
     ];
 
     useEffect(() => {
+        getPapers();
+    }, []);
+
+    const getPapers = () => {
         PaperService.getPapers().then((result) => {
             setPapers(result.data.data);
             setPaperKinds(result.data.paperKinds);
             setStandards(result.data.standards);
         })
-    }, []);
+    }
 
     const changePaperParam = (id, value) => {
         setPaperParam({
@@ -54,7 +58,10 @@ export default function PaperPage() {
     }
 
     const save = () => {
-        console.log(paperParam);
+        PaperService.savePaper(paperParam).then(() => {
+            cancel();
+            getPapers();
+        });
     }
 
     const cancel = () => {
