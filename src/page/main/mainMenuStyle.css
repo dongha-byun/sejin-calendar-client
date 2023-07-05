@@ -23,6 +23,14 @@ ul li a {
     color: #000;
 }
 
+ul li span {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #000;
+    cursor: pointer;
+}
+
 /* 2단 메뉴 스타일링 */
 ul ul {
     display: none;
