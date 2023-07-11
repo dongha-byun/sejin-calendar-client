@@ -1,71 +1,154 @@
-import React from "react";
+import React, { useState } from "react";
 import { Col, Form, FormGroup, Row, Table } from "react-bootstrap";
+import CustomCompanyService from "../../js/customCompany/customCompany";
+import ButtonComponent from "./component/ButtonComponent";
 
 export default function CustomCompanyPage() {
+    const [loading, setLoading] = useState(true);
+    const [customCompanyList, setCustomCompanyList] = useState([]);
+    const [customCompanyParam, setCustomCompanyParam] = useState({
+        "type": "",
+        "name": "",
+        "ceoName": "",
+        "registrationNumber": "",
+        "address": "",
+        "telNo": "",
+        "fax": "",
+        "email": "",
+        "webhard": "",
+        "discountType": "",
+        "discountRate": "",
+        "etc": ""
+    });
+
+    const save = () => {
+        console.log(customCompanyParam);
+        CustomCompanyService.save(customCompanyParam).then(() => {
+
+        }).catch((error)=> {
+            console.log(error);
+        });
+    }
+
+    const cancel = () => {
+        setCustomCompanyParam({
+            "type": "",
+            "name": "",
+            "ceoName": "",
+            "registrationNumber": "",
+            "address": "",
+            "telNo": "",
+            "fax": "",
+            "email": "",
+            "webhard": "",
+            "discountType": "",
+            "discountRate": "",
+            "etc": ""
+        });
+    }
+
+    const changeParam = (event) => {
+        setCustomCompanyParam({
+            ...customCompanyParam,
+            [event.target.id]: event.target.value
+        })
+    }
+    
     return(
         <div className="mt-3">
             <Form>
-                <FormGroup className="mb-3" as={Row}>
-                    <Form.Label column sm={1}>분 류</Form.Label>
-                    <Col sm={3}>
-                        <Form.Select>
-                            <option>자재관련</option>
-                            <option>인쇄소</option>
-                            <option>지업사</option>
-                            <option>제본소</option>
-                            <option>총판</option>
-                        </Form.Select>
+                <Row className="mb-3" >
+                    <Col sm={4} >
+                        <FormGroup controlId="type">
+                            <Form.Label>분 류</Form.Label>
+                            <Form.Select onChange={changeParam} value={customCompanyParam.type}>
+                                <option value="MATERIAL">자재관련</option>
+                                <option value="PRINT">인쇄소</option>
+                                <option value="PAPER">지업사</option>
+                                <option value="BINDING">제본소</option>
+                                <option value="AGENCY">총판</option>
+                            </Form.Select>
+                        </FormGroup>
                     </Col>
-                </FormGroup>
-                <FormGroup className="mb-3" as={Row}>
-                    <Form.Label column sm={1}>업체명</Form.Label>
-                    <Col sm={3}>
-                        <Form.Control type="text" />
+                </Row>
+                <Row className="mb-3">
+                    <Col sm={4} >
+                        <FormGroup controlId="name">
+                            <Form.Label>업체명</Form.Label>
+                            <Form.Control type="text" onChange={changeParam} value={customCompanyParam.name}/>
+                        </FormGroup>
                     </Col>
-                    <Form.Label column sm={1}>대표자</Form.Label>
-                    <Col sm={3}>
-                        <Form.Control type="text" />
+                    <Col sm={4}>
+                        <FormGroup controlId="ceoName">
+                            <Form.Label >대표자</Form.Label>
+                            <Form.Control type="text" onChange={changeParam} value={customCompanyParam.ceoName}/>
+                        </FormGroup>
                     </Col>
-                    <Form.Label column sm={1}>사업자번호</Form.Label>
-                    <Col sm={3}>
-                        <Form.Control type="text" />
+                    <Col sm={4}>
+                        <FormGroup controlId="registrationNumber">
+                            <Form.Label >사업자번호</Form.Label>
+                            <Form.Control type="text" onChange={changeParam} value={customCompanyParam.registrationNumber}/>
+                        </FormGroup>
                     </Col>
-                </FormGroup>
-                <FormGroup className="mb-3" as={Row}>
-                    <Form.Label column sm={1}>주소</Form.Label>
+                </Row>
+                <Row className="mb-3">
                     <Col>
-                        <Form.Control column type="text" />
+                        <FormGroup controlId="address">
+                            <Form.Label>주소</Form.Label>
+                            <Form.Control column type="text" onChange={changeParam} value={customCompanyParam.address}/>
+                        </FormGroup>
                     </Col>
-                </FormGroup>
-                <FormGroup className="mb-3" as={Row}>
-                    <Form.Label column sm={1}>전화</Form.Label>
-                    <Col sm={3}>
-                        <Form.Control type="text" />
+                </Row>
+                <Row className="mb-3">
+                    <Col>
+                        <FormGroup controlId="telNo">
+                            <Form.Label>전화</Form.Label>
+                            <Form.Control type="text" onChange={changeParam} value={customCompanyParam.telNo}/>
+                        </FormGroup>
                     </Col>
-                    <Form.Label column sm={1}>팩스</Form.Label>
-                    <Col sm={3}>
-                        <Form.Control type="text" />
+                    <Col>
+                        <FormGroup controlId="fax">
+                            <Form.Label>팩스</Form.Label>
+                            <Form.Control type="text" onChange={changeParam} value={customCompanyParam.fax}/>
+                        </FormGroup>
                     </Col>
-                    <Form.Label column sm={1}>E-mail</Form.Label>
-                    <Col sm={3}>
-                        <Form.Control type="text" />
+                    <Col>
+                        <FormGroup controlId="email">
+                            <Form.Label>E-mail</Form.Label>
+                            <Form.Control type="text" onChange={changeParam} value={customCompanyParam.email}/>
+                        </FormGroup>
                     </Col>
-                </FormGroup>
-                <FormGroup className="mb-3" as={Row}>
-                    <Form.Label column sm={1}>webhard</Form.Label>
-                    <Col sm={3}>
-                        <Form.Control type="text" />
+                </Row>
+                <Row className="mb-3">
+                    <Col>
+                        <FormGroup controlId="webhard">
+                            <Form.Label>webhard</Form.Label>
+                            <Form.Control type="text" onChange={changeParam} value={customCompanyParam.webhard}/>
+                        </FormGroup>
                     </Col>
-                    <Form.Label column sm={1}>할인요금</Form.Label>
-                    <Col sm={3}>
-                        <Form.Control type="text" />
+                    <Col>
+                        <FormGroup controlId="discountType">
+                            <Form.Label>할인요금</Form.Label>
+                            <Form.Control type="text" onChange={changeParam} value={customCompanyParam.discountType}/>
+                        </FormGroup>
                     </Col>
-                    <Form.Label column sm={1}>할인율</Form.Label>
-                    <Col sm={3}>
-                        <Form.Control type="text" />
+                    <Col>
+                        <FormGroup controlId="discountRate">
+                            <Form.Label>할인율</Form.Label>
+                            <Form.Control type="text" onChange={changeParam} value={customCompanyParam.discountRate}/>
+                        </FormGroup>
                     </Col>
-                </FormGroup>
+                </Row>
+                <Row>
+                    <Col>
+                        <FormGroup controlId="etc">
+                            <Form.Label>기타</Form.Label>
+                            <Form.Control type="text" onChange={changeParam} value={customCompanyParam.etc}/>
+                        </FormGroup> 
+                    </Col>
+                </Row>
             </Form>
+            <ButtonComponent saveFunc={save} cancelFunc={cancel} />
 
             <div className="mt-3 mb-3 border"></div>
 

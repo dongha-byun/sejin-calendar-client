@@ -3,6 +3,7 @@ import { Col, Form, Row, InputGroup, Button } from "react-bootstrap";
 import PaperService from "../../js/paper/paper";
 import ListTable from "../common/list/ListTable";
 import ValueHistoryCombo from "../common/selectinput/ValueHistoryCombo";
+import ButtonComponent from "./component/ButtonComponent";
 
 export default function PaperPage() {
 
@@ -71,11 +72,7 @@ export default function PaperPage() {
             "standard": ""
         });
     }
-
-    const exit = () => {
-        
-    }
-
+    
     return (
         <div className="mt-3">
             <Form>
@@ -113,11 +110,7 @@ export default function PaperPage() {
                     </Col>
                 </Form.Group>
             </Form>
-            <div>
-                <Button variant="outline-primary" size="sm" className="mx-1" onClick={save}>확인</Button>
-                <Button variant="outline-secondary" size="sm" className="mx-1" onClick={cancel}>취소</Button>
-                <Button variant="outline-danger" size="sm" className="mx-1" onClick={exit}>종료</Button>
-            </div>
+            <ButtonComponent saveFunc={save} cancelFunc={cancel} />
 
             <div className="mt-3 mb-3 border"></div>
 
