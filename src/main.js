@@ -7,7 +7,7 @@ const {
 function createWindow () { 
   const win = new BrowserWindow({ 
     width: 1200, 
-    height: 600, 
+    height: 1000, 
     webPreferences: { 
       nodeIntegration: true,
       contextIsolation : false
@@ -16,7 +16,7 @@ function createWindow () {
 
   win.loadURL("http://localhost:3000");
 
-  win.webContents.openDevTools();
+  //win.webContents.openDevTools();
 } 
 
 // 
